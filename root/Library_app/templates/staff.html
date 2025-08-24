@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Staff Directory</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+<h2>Add New Staff Member</h2>
+<form method="POST">
+    <label>Name:</label>
+    <input type="text" name="name" required><br>
+
+    <label>Role:</label>
+    <input type="text" name="role" required><br>
+
+    <label>Email:</label>
+    <input type="email" name="email" required><br>
+
+    <label>Phone:</label>
+    <input type="text" name="phone" required><br>
+
+    <label>Join Date:</label>
+    <input type="date" name="join_date" required><br>
+
+    <button type="submit">Add Staff</button>
+</form>
+
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+    <div class="container">
+        <h2>Staff Members</h2>
+        <table>
+            <tr>
+                <th>StaffID</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>JoinDate</th>
+            </tr>
+            {% for person in staff %}
+            <tr>
+                <td>{{ person.StaffID }}</td>
+                <td>{{ person.Name }}</td>
+                <td>{{ person.Role }}</td>
+                <td>{{ person.Email }}</td>
+                <td>{{ person.Phone }}</td>
+                <td>{{ person.JoinDate }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
