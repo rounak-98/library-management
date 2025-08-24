@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Records</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+<form method="POST">
+    <input type="text" name="title" placeholder="Search by title">
+    <button type="submit">Search</button>
+</form>
+{% if results is defined %}
+    {% if results %}
+        <table>
+            <tr><th>Title</th><th>Author</th><th>Genre</th></tr>
+            {% for book in results %}
+            <tr>
+                <td>{{ book.Title }}</td>
+                <td>{{ book.Author }}</td>
+                <td>{{ book.Genre }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+{% endif %}
+
+
+<h2>Book Records</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Title</th><th>Author</th><th>Genre</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book[0] }}</td>
+            <td>{{ book[1] }}</td>
+            <td>{{ book[2] }}</td>
+            <td>{{ book[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>   
+
+</body>
+</html>
